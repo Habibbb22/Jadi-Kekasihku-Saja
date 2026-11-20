@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Buku kenangan dan ungkapan hati spesial untuk Inayah Taufika Aqilah ♡">
+  <meta name="theme-color" content="#121526">
+
+  <title>Inayah Taufika Aqilah ♡ — Jadi Kekasihku Saja</title>
+
+  <!-- Google Fonts: Baloo 2, Quicksand, Playfair Display, & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Script -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Ambient Glow Orbs di Background -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+  <!-- Efek Partikel Salju, Bintang, & Hati -->
+  <div id="particles-container" aria-hidden="true"></div>
+
+  <!-- Audio Player (Dapat memutar lagu jika file lagu.mp3 tersedia) -->
+  <audio id="audio" preload="auto">
+    <source src="lagu.mp3" type="audio/mpeg">
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Container Utama -->
+  <div class="main-container">
+
+    <!-- Header / Judul Romantis -->
+    <header class="romantic-header">
+      <div class="header-badge">
+        <span class="sparkle">✧</span>
+        <span>A Special Memory Book</span>
+        <span class="sparkle">✧</span>
+      </div>
+      <h1 class="header-title">Inayah Taufika Aqilah <span class="heart-accent">♡</span></h1>
+      <p class="header-subtitle">Lembar demi lembar melodi kenangan dan rasa di dalam hati</p>
+    </header>
+
+    <!-- Stage Buku 3D -->
+    <main class="book-stage">
+
+      <!-- Tombol Navigasi Samping Kiri -->
+      <button class="nav-arrow nav-prev" id="btnPrevSide" aria-label="Halaman Sebelumnya" title="Halaman Sebelumnya (←)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Wadah Perspektif Buku 3D -->
+      <div class="scene" id="bookScene">
+        <div class="book" id="bookElement">
+
+          <!-- Halaman Kiri (Teks Lirik & Puisi) -->
+          <article class="page left" id="leftPage" title="Klik untuk halaman sebelumnya">
+            <!-- Tekstur & Ornamen Halaman -->
+            <div class="page-corner page-corner-tl"></div>
+            <div class="page-number-tag" id="pageNumberTag">01 / 08</div>
+
+            <div class="page-content">
+              <div class="quote-ornament top-ornament" aria-hidden="true">
+                <span class="ornament-line"></span>
+                <span class="ornament-heart">❦</span>
+                <span class="ornament-line"></span>
+              </div>
+
+              <div class="quote-body">
+                <span class="quote-mark open-quote">“</span>
+                <p id="pageText" class="lyric-text">Katakan cinta bila kau cinta</p>
+                <span class="quote-mark close-quote">”</span>
+              </div>
+
+              <p id="pageSubtext" class="sub-lyric">Awal dari sebuah rasa yang bersemi indah di hatiku</p>
+
+              <div class="heart-pulse-wrap" id="heartPulse">
+                <span class="interactive-heart" title="Klik cinta ini! ♡">♡</span>
+              </div>
+
+              <!-- Tombol Spesial Kejutan (Muncul di Halaman Terakhir) -->
+              <button id="btnSpecialSurprise" class="special-surprise-btn" aria-label="Buka Surat Cinta">
+                <span class="btn-icon">💌</span>
+                <span class="btn-text">Buka Surat Untukmu</span>
+                <span class="btn-sparkle">✨</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Halaman Kanan (Foto Kenangan) -->
+          <article class="page right" id="rightPage" title="Klik untuk halaman berikutnya">
+            <div class="page-corner page-corner-tr"></div>
+
+            <div class="photo-wrapper">
+              <!-- Bingkai Foto Polaroid Mewah -->
+              <div class="photo-frame">
+                <div class="frame-tape" aria-hidden="true"></div>
+                <div class="photo-inner">
+                  <img
+                    id="pagePhoto"
+                    src="foto/foto1.jpeg"
+                    alt="Foto kenangan bersama Inayah"
+                    loading="eager"
+                  >
+                  <div class="photo-overlay"></div>
+                </div>
+                <div class="photo-footer">
+                  <span class="photo-caption" id="photoCaption">Momen Indah Bersamamu</span>
+                  <span class="photo-heart">♡</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lembaran Animasi Membalik Buku 3D -->
+          <div class="turning-page" id="turningPage" aria-hidden="true">
+            <div class="turn-front" id="turnFront">
+              <div class="turn-front-inner"></div>
+            </div>
+            <div class="turn-back" id="turnBack">
+              <div class="turn-back-inner"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tombol Navigasi Samping Kanan -->
+      <button class="nav-arrow nav-next" id="btnNextSide" aria-label="Halaman Berikutnya" title="Halaman Berikutnya (→)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+    </main>
+
+    <!-- Bar Kontrol & Navigasi Bawah -->
+    <footer class="controls-dock">
+
+      <!-- Status Halaman -->
+      <div class="counter-badge" id="counter">
+        Halaman 1 dari 8
+      </div>
+
+      <!-- Dots Navigasi Halaman -->
+      <nav class="dots-pagination" id="dotsContainer" aria-label="Navigasi Halaman Buku">
+        <!-- Dots akan digenerate otomatis melalui script.js -->
+      </nav>
+
+      <!-- Tombol Kontrol Aksi -->
+      <div class="action-buttons">
+
+        <!-- Tombol Putar Otomatis / Slideshow -->
+        <button id="btnAutoplay" class="control-btn" title="Putar Otomatis / Slideshow">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+          <span class="btn-label">Auto Putar</span>
+        </button>
+
+        <!-- Tombol Audio Musik -->
+        <button id="btnMusic" class="control-btn" title="Putar Musik Latar">
+          <div class="sound-wave" id="soundWave" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <svg class="icon-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          <span class="btn-label" id="musicLabel">Musik</span>
+        </button>
+
+      </div>
+
+      <!-- Petunjuk Interaksi -->
+      <div class="interaction-hints">
+        <p class="hint-main">Gunakan panah <strong>←</strong> <strong>→</strong> atau tombol <strong>Spasi</strong> untuk membalik halaman</p>
+        <p class="hint-sub">Pada layar sentuh, kamu juga bisa <strong>menggeser (swipe)</strong> ke kiri atau kanan ♡</p>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Modal Kejutan Romantis (Surprise Love Confession Modal) -->
+  <div id="proposalModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="btnCloseModal" aria-label="Tutup pesan">&times;</button>
+
+      <div class="modal-header-icon">💌</div>
+      <h2 id="modalTitle" class="modal-title">Untuk Inayah Taufika Aqilah ♡</h2>
+
+      <div class="modal-body">
+        <p class="modal-message">
+          Dari setiap foto, kata, dan momen yang kita lalui bersama...<br>
+          Hatiku tak pernah berhenti mengagumi dan bersyukur atas kehadiranmu.
+        </p>
+        <div class="modal-question-box">
+          <span class="modal-question-quote">“</span>
+          <p class="modal-question">Katakan cinta bila kau cinta... Hati ini meminta... Mau kah kamu jadi kekasihku? ♡</p>
+        </div>
+      </div>
+
+      <div class="modal-actions" id="modalActions">
+        <button class="choice-btn choice-yes" id="btnYes">
+          <span class="choice-emoji">💖</span>
+          <span>Mau Banget!</span>
+        </button>
+        <button class="choice-btn choice-sure" id="btnSure">
+          <span class="choice-emoji">🥰</span>
+          <span>Iya, Tentu Saja!</span>
+        </button>
+      </div>
+
+      <!-- Pesan Sukses Setelah Memilih -->
+      <div class="modal-celebration" id="modalCelebration" style="display: none;">
+        <div class="celebration-emojis">🎉 💖 👩‍❤️‍👨 💍 ✨</div>
+        <h3 class="celebration-title">Yaaay! Kamu membuat hariku jadi yang paling bahagia!</h3>
+        <p class="celebration-text">Terima kasih sudah memilih untuk berjalan bersama. Aku janji akan selalu menjaga senyum manismu ♡</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifikasi (Misal info musik) -->
+  <div id="toastNotification" class="toast-notification" aria-live="polite"></div>
+
+  <!--
+    =======================================================
+    DATA HALAMAN (Lirik, Sub-lirik, Foto, Waktu & Tema Warna)
+    =======================================================
+  -->
+  <div id="pageData" hidden>
+
+    <div
+      data-time="0"
+      data-text="Katakan cinta bila kau cinta"
+      data-subtext="Awal dari sebuah rasa yang bersemi indah di hatiku..."
+      data-photo="foto/foto1.jpeg"
+      data-caption="Senyuman pertama yang memikat hati"
+      data-color="#ffe6ef"
+      data-accent="#f06292">
+    </div>
+
+    <div
+      data-time="5"
+      data-text="Hati ini meminta"
+      data-subtext="Di setiap hembusan detik, namamu selalu singgah di pikiran..."
+      data-photo="foto/foto2.jpeg"
+      data-caption="Tatapan teduh yang selalu menenangkan"
+      data-color="#e3f2fd"
+      data-accent="#64b5f6">
+    </div>
+
+    <div
+      data-time="10"
+      data-text="Kau lebih dari teman berbagi"
+      data-subtext="Tempat pulang terbaik dari segala penat dan lelah duniaku..."
+      data-photo="foto/foto3.jpeg"
+      data-caption="Tawa ceria yang selalu ingin kujaga"
+      data-color="#e8f5e9"
+      data-accent="#81c784">
+    </div>
+
+    <div
+      data-time="15"
+      data-text="Jadi kekasihku saja"
+      data-subtext="Satu pinta sederhana yang kini ingin kuungkapkan kepadamu..."
+      data-photo="foto/foto4.jpeg"
+      data-caption="Keindahan yang tak pernah pudar"
+      data-color="#f3e5f5"
+      data-accent="#ba68c8">
+    </div>
+
+    <div
+      data-time="20"
+      data-text="Cinta katakan cinta"
+      data-subtext="Biarkan semesta mendengar betapa tulusnya rasa ini..."
+      data-photo="foto/foto5.jpeg"
+      data-caption="Setiap sudut memoriku penuh tentangmu"
+      data-color="#fff3e0"
+      data-accent="#ffb74d">
+    </div>
+
+    <div
+      data-time="25"
+      data-text="Hati ini meminta"
+      data-subtext="Tak ada lagi keraguan, hanya ada rasa yakin untukmu..."
+      data-photo="foto/foto6.jpeg"
+      data-caption="Hangatnya kebersamaan kita"
+      data-color="#e0f7fa"
+      data-accent="#4dd0e1">
+    </div>
+
+    <div
+      data-time="30"
+      data-text="Kau lebih dari teman berbagi"
+      data-subtext="Menjadi pendengar, penyemangat, dan bagian terbaik di hidupku..."
+      data-photo="foto/foto7.jpeg"
+      data-caption="Bahagia sederhana saat menatapmu"
+      data-color="#fce4ec"
+      data-accent="#f48fb1">
+    </div>
+
+    <div
+      data-time="35"
+      data-text="Jadi kekasihku saja ♡"
+      data-subtext="Maukah kamu melangkah bersamaku, hari ini dan selamanya?"
+      data-photo="foto/foto8.jpeg"
+      data-caption="Untukmu yang teristimewa, Inayah ♡"
+      data-color="#ede7f6"
+      data-accent="#9575cd">
+    </div>
+
+  </div>
+
+</body>
+</html>
